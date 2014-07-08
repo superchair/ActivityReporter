@@ -1,1 +1,4 @@
-ActivityReport Project
+#ActivityReport Project
+
+## Authors
+* Dennis Craven
