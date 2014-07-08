@@ -1,0 +1,14 @@
+# log files
+*.log
+
+# external lib files and generated directories
+node_modules/*
+bower_libs/*
+build/*
+reports/*
+
+# temp, etc files
+.DS_Store
+*~
+*.swp
+*.swo
