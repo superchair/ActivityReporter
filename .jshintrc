@@ -29,5 +29,7 @@
     "expect": false,
     "inject": false,
     "spyOn": false
-  }
+  },
+
+  "-W086" : false
 }
