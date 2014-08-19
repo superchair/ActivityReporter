@@ -13,8 +13,15 @@
         $scope.buildName = envBuildName;
         $scope.buildVersion = envBuildVersion;
 
-        $scope.items = [{label:'Top Item', text:'This is the top item!'},{label:'Second Item', text:null, children:[{label:'sub item one', text:'This is the text for sub item one', children:[{label:'sub sub item...', text:'I think you get the point....'}]}]}];
+        $scope.items = [{text:'Top Item', subItems:[{text:'I am a top level item'}, {text:'I am also a top level item'}]},{text:'Second Item', subItems:[]}];
     }]);
+
+    activityReporter.controller('dialogCtrl', ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
+        $scope.launch = function() {
+            console.log("Hi you pressed me :P");
+        };
+    }]);
+
     activityReporter.directive('listItem', function() {
         return {
             restrict:'E',

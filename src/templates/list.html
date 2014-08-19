@@ -1,6 +1,4 @@
 <li>
-  <div>Title: <a href="#" editable-text="item.label">{{item.label}}</a></div>
-  <div><a href="#" editable-text="item.text">{{item.text || 'empty'}}</a><div>
-  <button type="button" class="btn btn-default" itme="item">+</button>
-  <ul ng-repeat="item in item.children" ng-include="'templates/list.html'"></ul>
+  <div>{{item.text}} <a href="#"><i class="glyphicon glyphicon-pencil"></i></a><i class="glyphicon glyphicon-plus" item="item"></i></div>
+  <ul ng-repeat="item in item.subItems" ng-include="'templates/list.html'"></ul>
 </li>
