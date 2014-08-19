@@ -1,4 +1,4 @@
 <li>
-  <div>{{item.text}} <a href="#"><i class="glyphicon glyphicon-pencil"></i></a><i class="glyphicon glyphicon-plus" item="item"></i></div>
+<div ng-controller="dialogCtrl">{{item.text}} <a ng-click="editItem(item)" href="#"><i class="glyphicon glyphicon-pencil"></i></a><a ng-click="newSubItem(item)" href"#"><i class="glyphicon glyphicon-plus"></i></a></div>
   <ul ng-repeat="item in item.subItems" ng-include="'templates/list.html'"></ul>
 </li>

@@ -18,7 +18,7 @@
           <ul ng-repeat="item in items" ng-include="'templates/list.html'">
            <!--<listItem item="item"></list-item>-->
           </ul>
-          <button type="button" class="btn btn-default" itme="item">+ NewItem</button>
+          <button ng-click="createNewTopItem()" type="button" class="btn btn-default">+ NewItem</button>
         </div>
         <script type="text/javascript" src="lib/jquery.js"></script>
         <script type="text/javascript" src="lib/angular.js"></script>
