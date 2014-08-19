@@ -9,16 +9,26 @@
         <meta name="author" content="abrown <alexabro@cisco.com">
 
         <link href="css/main.css" rel="stylesheet" />
+        <link href="css/xeditable.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
 
-        <div>Actual Text Value according to mainCtrl: {{text}}</div>
-        <inputfield value="text"></inputfield>
-
+        <div ng-controller="mainCtrl">
+          <ul ng-repeat="item in items" ng-include="'templates/list.html'">
+           <!--<listItem item="item"></list-item>-->
+          </ul>
+          
+        </div>
         <script type="text/javascript" src="lib/jquery.js"></script>
         <script type="text/javascript" src="lib/angular.js"></script>
+        <script type="text/javascript" src="lib/angular-sanitize.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bower-angular-translate/2.0.1/angular-translate.min.js"></script>
+        <script type="text/javascript" src="lib/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="lib/dialogs-default-translations.js"></script>
+        <script type="text/javascript" src="lib/dialogs.js"></script>
+        <script type="text/javascript" src="lib/xeditable.js"></script>
 
-        <script type="text/javascript" src="js/widgets/inputfield.js"></script>
 
         <script type="text/javascript" src="js/environment.js"></script>
         <script type="text/javascript" src="js/main.js"></script>

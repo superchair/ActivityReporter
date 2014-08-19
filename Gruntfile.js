@@ -115,7 +115,12 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'bower_libs/jquery/dist/jquery.js',
-                            'bower_libs/angular/angular.js'
+                            'bower_libs/angular/angular.js',
+                            'bower_libs/angular-xeditable/dist/js/xeditable.js',
+                            'bower_libs/angular-dialog-service/dialogs.js',
+                            'bower_libs/angular-bootstrap/ui-bootstrap-tpls.js',
+                            'bower_libs/angular-dialog-service/dialogs-default-translations.js',
+                            'bower_libs/angular-sanitize/angular-sanitize.js'
                         ],
                         dest: config.paths.build + '/dev/lib/',
                         flatten: true
@@ -134,7 +139,12 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'bower_libs/jquery/dist/jquery.js',
-                            'bower_libs/angular/angular.js'
+                            'bower_libs/angular/angular.js',
+                            'bower_libs/angular-xeditable/dist/js/xeditable.js',
+                            'bower_libs/angular-dialog-service/dialogs.js',
+                            'bower_libs/angular-bootstrap/ui-bootstrap-tpls.js',
+                            'bower_libs/angular-dialog-service/dialogs-default-translations.js',
+                            'bower_libs/angular-sanitize/angular-sanitize.js'
                         ],
                         dest: config.paths.build + '/ci/lib/',
                         flatten: true
