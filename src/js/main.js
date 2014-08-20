@@ -31,7 +31,7 @@
     activityReporter.controller('dialogCtrl', function($scope, $modalInstance, data){
         $scope.item = {text: ''};
         if(data === undefined) {
-            $scope.parentItem = {text: 'Create New Item'}
+            $scope.parentItem = {text: 'Create New Item'};
         } else {
             $scope.parentItem = data;
         }
@@ -103,4 +103,15 @@
             }
         };
     });
+
+    activityReporter.directive('autofocus', function() {
+        return {
+            restrict:'A',
+            link : function (scope, element) {
+                element[0].focus();
+            }
+        };
+    });
+
+
 })();
