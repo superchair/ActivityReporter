@@ -10,12 +10,13 @@ describe('MODULE ActivityReport', function() {
                 '$controller',
                 function($controller) {
                     var scope = {};
+                    var dialogs = {};
 
                     var ctrl = $controller('mainCtrl', {
                         $scope: scope,
                         'env:buildName': 'buildname',
                         'env:buildVersion': 'buildversion',
-                        $dialogs: dialogs
+                        $dialogs: dialogs,
                     });
 
                     expect(ctrl).toBeDefined();
