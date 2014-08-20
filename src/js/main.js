@@ -58,6 +58,34 @@
             console.log('EDIT ME!!');
             console.log(item);
         };
+
+        $scope.searchAndRemove = function(itemsArray, itemToRemove) {
+            var i = itemsArray.indexOf(itemToRemove);
+            if(i != -1 ){
+                itemsArray.splice(i, 1);
+                return;
+            } else {
+                for(i = 0; i < itemsArray.length; i++){
+                    if(itemsArray[i].subItems.length != 0){
+                        $scope.searchAndRemove(itemsArray[i].subItems, itemToRemove);
+                    }
+                }
+            }
+        };
+
+        $scope.deleteItem = function(item){
+            console.log('DELETE ME!!');
+
+            dlg = $dialogs.confirm('Please Confirm','Delete Item? ' + item.text);
+            dlg.result.then(function(btn){
+                console.log('Fine then delete the item ');
+                // TODO find a better way to remove the item if its in a subItems array.
+                $scope.searchAndRemove($scope.items, item);
+                
+            },function(btn){
+                console.log('Not deleting the item :P');
+            });
+        };
     }]);
 
     activityReporter.directive('listItem', function() {

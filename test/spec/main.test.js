@@ -14,7 +14,8 @@ describe('MODULE ActivityReport', function() {
                     var ctrl = $controller('mainCtrl', {
                         $scope: scope,
                         'env:buildName': 'buildname',
-                        'env:buildVersion': 'buildversion'
+                        'env:buildVersion': 'buildversion',
+                        $dialogs: dialogs
                     });
 
                     expect(ctrl).toBeDefined();
