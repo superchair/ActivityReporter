@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span class="glyphicon glyphicon-star"></span> Create New Item</h4>
+</div>
+<div class="modal-body">
+    <ng-form name="newItemDialog" novalidate role="form">
+        <div class="form-group input-group-lg" ng-class="{true: 'has-error'}[newItemDialog.text.$dirty && newItemDialog.text.$invalid]">
+            <label class="control-label" for="item">Item Name:</label>
+            <input type="text" class="form-control" item="item" id="item" ng-model="item.text" required>
+            <span class="help-block">Enter the name of the new item.</span>
+        </div>
+    </ng-form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="(newItemDialog.$dirty && newItemDialog.$invalid) || newItemDialog.$pristine">Save</button>
+</div>
