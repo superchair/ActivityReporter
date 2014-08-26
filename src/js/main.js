@@ -35,6 +35,7 @@
         } else {
             $scope.parentItem = data;
         }
+        console.log(data);
         
 
         $scope.cancel = function(){
@@ -43,6 +44,18 @@
   
         $scope.save = function(){
             $modalInstance.close($scope.item.text);
+        }; // end save
+    });
+
+    activityReporter.controller('editDialogCtrl', function($scope, $modalInstance, data){
+        $scope.item = data;
+
+        $scope.cancel = function(){
+            $modalInstance.dismiss(data);
+        }; // end cancel
+  
+        $scope.save = function(){
+            $modalInstance.close($scope.item);
         }; // end save
     });
 
@@ -63,6 +76,14 @@
         $scope.editItem = function(item){
             console.log('EDIT ME!!');
             console.log(item);
+            console.log(typeof(item));
+
+            dlg = $dialogs.create('/templates/editDialog.html','editDialogCtrl',item,{key: false,back: 'static'});
+            dlg.result.then(function(newItem){
+                item.text = newItem.text
+            },function(newItem){
+                console.log('No Input');
+            });
         };
 
         $scope.searchAndRemove = function(itemsArray, itemToRemove) {
@@ -108,7 +129,10 @@
         return {
             restrict:'A',
             link : function (scope, element) {
-                element[0].focus();
+                setTimeout(function() {
+                    element[0].focus();
+                }, 2);
+                
             }
         };
     });

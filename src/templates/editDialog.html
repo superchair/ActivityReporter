@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span class="glyphicon glyphicon-star"></span>Edit</div></h4>
+</div>
+<div class="modal-body">
+    <ng-form name="editItemDialog" novalidate role="form">
+        <div class="form-group input-group-lg" ng-class="{true: 'has-error'}[editItemDialog.text.$dirty && editItemDialog.text.$invalid]">
+            <label class="control-label" for="parentItem">Item Name:</label>
+            <input type="text" class="form-control" id="item" ng-model="item.text" required autofocus>
+            <span class="help-block">Edit item</span>
+        </div>
+    </ng-form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="(editItemDialog.$dirty && editItemDialog.$invalid) || editItemDialog.$pristine">Save</button>
+</div>
