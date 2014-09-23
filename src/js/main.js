@@ -12,16 +12,23 @@
         $httpProvider.defaults.headers.common['X-DRE']
     }])
 
-    activityReporter.controller('mainCtrl', ['$scope', 'env:buildName', 'env:buildVersion', '$dialogs', 'DB:getAllRecords', function($scope, envBuildName, envBuildVersion, $dialogs, dbGetAllRecords) {
+    activityReporter.controller('mainCtrl', ['$scope', 'env:buildName', 'env:buildVersion', '$dialogs', 'DB:getRootRecords', 'DB:getRecordsByParentId', function($scope, envBuildName, envBuildVersion, $dialogs, dbGetRootRecords, dbGetRecordsByParentId) {
         $scope.buildName = envBuildName;
         $scope.buildVersion = envBuildVersion;
         var dlg = null;
 
         $scope.items = [];
         console.log('calling get all records')
-        dbGetAllRecords().then(
+        dbGetRootRecords().then(
             function(records) {
-                $scope.items = records;
+                //$scope.items = records;
+                console.log(records);
+                for(var i = 0; i < records.length; i++) {
+                    dbGetRecordsByParentId(records[i].id).then(
+                        function(records){
+                            console.log(records);
+                        });
+                }
             },
             function() {
                 //TODO notify of possible error
