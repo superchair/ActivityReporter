@@ -2,19 +2,31 @@
 (function(undefined) {
 
     var activityReporter = angular.module('ActivityReporter', [
-        'ar:env', 'xeditable', 'ui.bootstrap', 'dialogs.main','dialogs.default-translations'
+        'ar:env', 'ui.bootstrap', 'dialogs.main','dialogs.default-translations', 'DBServices', 'ngCookies', 'ngResource', 'ngSanitize', 'dfUserManagement'
     ]);
 
-    activityReporter.run(function(editableOptions) {
-        editableOptions.theme = 'bs3';
-    });
+    activityReporter.constant('DSP_URL', 'http://10.132.7.50:8080')
+    activityReporter.constant('DSP_API_KEY', 'ActivityReporter')
 
-    activityReporter.controller('mainCtrl', ['$scope', 'env:buildName', 'env:buildVersion', '$dialogs', function($scope, envBuildName, envBuildVersion, $dialogs) {
+    activityReporter.config(['$httpProvider', 'DSP_API_KEY', function($httpProvider, DSP_API_KEY){
+        $httpProvider.defaults.headers.common['X-DRE']
+    }])
+
+    activityReporter.controller('mainCtrl', ['$scope', 'env:buildName', 'env:buildVersion', '$dialogs', 'DB:getAllRecords', function($scope, envBuildName, envBuildVersion, $dialogs, dbGetAllRecords) {
         $scope.buildName = envBuildName;
         $scope.buildVersion = envBuildVersion;
         var dlg = null;
 
-        $scope.items = [{text:'Top Item', subItems:[{text:'I am a item', subItems:[]}, {text:'I am also a item', subItems:[]}]},{text:'Second Item', subItems:[]}];
+        $scope.items = [];
+        console.log('calling get all records')
+        dbGetAllRecords().then(
+            function(records) {
+                $scope.items = records;
+            },
+            function() {
+                //TODO notify of possible error
+            }
+        );
 
         $scope.createNewTopItem = function(){
             console.log('Add new Topic Item!!');

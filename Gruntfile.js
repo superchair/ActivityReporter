@@ -120,7 +120,11 @@ module.exports = function(grunt) {
                             'bower_libs/angular-dialog-service/dialogs.js',
                             'bower_libs/angular-bootstrap/ui-bootstrap-tpls.js',
                             'bower_libs/angular-dialog-service/dialogs-default-translations.js',
-                            'bower_libs/angular-sanitize/angular-sanitize.js'
+                            'bower_libs/angular-sanitize/angular-sanitize.js',
+                            'bower_libs/dreamfactory-user-management/dreamfactory-user-management.js',
+                            'bower_libs/angular-resource/angular-resource.js',
+                            'bower_libs/angular-route/angular-route.js',
+                            'bower_libs/angular-cookies/angular-cookies.js'
                         ],
                         dest: config.paths.build + '/dev/lib/',
                         flatten: true
@@ -144,7 +148,11 @@ module.exports = function(grunt) {
                             'bower_libs/angular-dialog-service/dialogs.js',
                             'bower_libs/angular-bootstrap/ui-bootstrap-tpls.js',
                             'bower_libs/angular-dialog-service/dialogs-default-translations.js',
-                            'bower_libs/angular-sanitize/angular-sanitize.js'
+                            'bower_libs/angular-sanitize/angular-sanitize.js',
+                            'bower_libs/dreamfactory-user-management/dreamfactory-user-management.js',
+                            'bower_libs/angular-resource/angular-resource.js',
+                            'bower_libs/angular-route/angular-route.js',
+                            'bower_libs/angular-cookies/angular-cookies.js'
                         ],
                         dest: config.paths.build + '/ci/lib/',
                         flatten: true
